@@ -19,6 +19,30 @@ class ArrayPrograms {
         return (counter > max) ? counter : max;
     }
     
+    	
+	/**
+	 * Given an array nums of integers, return how many of them contain an even number of digits
+	 * Example:
+	 * 		Input: nums = [12,345,2,6,7896]
+	 * 		Output: 2
+	 */
+	public int findEvenSizedNumCount(int[] nums) {
+		int counter = 0;
+        for(int a : nums) {
+            // counter += isEvenSizeed(a) ? 1 : 0;
+            short c = 0;
+            while(a > 0) {
+                c++;
+                a = a / 10;
+            }
+            counter += (c % 2 == 0) ? 1 : 0;
+        }
+        return counter;
+	}
+	
+	
+    
+    
     
     
 }
