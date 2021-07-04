@@ -54,4 +54,34 @@ class DuplicateZeros {
             }
         }
     }
+    
+    
+      private static int[] shiftRight(int[] arr, int startIndex) {
+		
+		int prev = arr[startIndex];
+		for(int i = startIndex+1; i < arr.length; i++) {
+			int cur = arr[i];
+			arr[i] = prev;
+			prev = cur;
+		}
+		
+		return arr;
+	}
+    // Solution 2( not so optimum)
+    public void duplicateZeros2(int[] arr) {
+        
+        for(int i=0; i<arr.length-1; i++) {
+			if(arr[i] == 0) {
+				shiftRight(arr, i+1);
+				arr[i+1] = 0;
+				++i;
+			}
+		}
+
+        
+    }
+    
+    
+    
+    
 }
